@@ -1388,7 +1388,6 @@
       <button class="dir-tab active" data-dir="all"    onclick="setDir(this,'all')">Всі напрями</button>
       <button class="dir-tab"        data-dir="store"  onclick="setDir(this,'store')">🏪 Магазин та склад</button>
       <button class="dir-tab"        data-dir="office" onclick="setDir(this,'office')">🏢 Офіс Сільпо</button>
-      <button class="dir-tab"        data-dir="intern" onclick="setDir(this,'intern')">🎓 Стажери</button>
     </div>
 
     <!-- Listing search -->
@@ -2304,7 +2303,6 @@
           <li><a href="#" onclick="goToListing('store');return false;">Магазин та склад</a></li>
           <li><a href="#" onclick="goTo('courier');return false;">Кур'єри</a></li>
           <li><a href="#" onclick="goToListing('office');return false;">Офіс Сільпо</a></li>
-          <li><a href="#" onclick="goToListing('intern');return false;">Стажери</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -2362,7 +2360,7 @@
   }
 
   // Direction tab switching
-  const dirCounts = { all: 403, store: 327, office: 64, intern: 12 };
+  const dirCounts = { all: 403, store: 327, office: 64 };
   function setDir(btn, dir) {
     document.querySelectorAll('.dir-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
@@ -2373,7 +2371,7 @@
     const headEl = document.getElementById('listing-head-count');
     if (headEl) headEl.textContent = n;
     // Dim cards not matching direction (visual stub)
-    const dirMap = { store: 'Магазин та склад', office: 'Офіс Сільпо', intern: 'Стажери' };
+    const dirMap = { store: 'Магазин та склад', office: 'Офіс Сільпо' };
     document.querySelectorAll('#listing-grid .v-card').forEach(card => {
       if (dir === 'all') { card.style.opacity = ''; return; }
       const type = card.querySelector('.v-card__type')?.textContent || '';
